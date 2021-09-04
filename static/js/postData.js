@@ -1,6 +1,8 @@
 async function postData(decibals) {
   let ip = await getIp();
   let level = 0;
+  decibals = Number(decibals)
+  if (decibals === 0) return "That wasn't a valid number!"
   if (decibals < 50) level = 1;
   else if (decibals < 60) level = 2;
   else if (decibals < 63) level = 3;
@@ -12,6 +14,7 @@ async function postData(decibals) {
   else if (decibals < 80) level = 9;
   else if (decibals < 120) level = 10;
   else return "That wasn't a valid number!"
+
   let results = await fetch("/api/newData", {
     method: "POST",
     headers: {

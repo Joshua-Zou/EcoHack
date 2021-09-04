@@ -16,14 +16,17 @@
 
   <%- include('partials/header.ejs') %>
 
-    <div id="map"></div>
+<div class="body">
+    <div id="map">
+      <img src="/images/loading.gif">
+    </div>
       <script src="/js/homepage.js"></script>
 
 <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBPjnFRhe_EUGI69aKW9mNSSshtK2G7U&callback=initMap&libraries=visualization&v=weekly&channel=2"></script>
 
-    <img src="/images/mike.png">
 <script src="/js/postData.js"></script>
+</div>
 
 
 </body>

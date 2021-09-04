@@ -1,7 +1,11 @@
 const router = require('express').Router();
 const { MongoClient } = require('mongodb');
+const fs = require("file-system");
 
-const uri = "mongodb+srv://pogdon:ixRMAC6mYiKvboSp@cluster0.2zveq.mongodb.net";
+let secrets = process.env.mongodb;
+
+console.log(secrets)
+const uri = secrets;
 const mongoclient = new MongoClient(uri);
 
 mongoclient.connect(async function(err, mongoclient) {
@@ -20,7 +24,9 @@ mongoclient.connect(async function(err, mongoclient) {
   router.get("/", (req, res) => {
     res.render("index")
   })
-
+  router.get("/contribute", (req, res) => {
+    return res.render("contribute.ejs")
+  })
   router.get("/api/chartData", async (req, res) => {
     if (!req.query.year) {
       return res.status(400).send("You must include a year in the query!");

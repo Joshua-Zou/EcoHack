@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Contribute | SoundScale</title>
+	<link href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="images/favicon.png">
+<script src="/js/postData.js"></script>
+
+</head>
+
+<body>
+	<%-include('./partials/header.ejs')%>
+      <div class="body">
+        <span style="font-size: 1.8em; display: block; text-align: center; padding-top: 20px; font-weight: bold">
+          Contribute to the Community!
+        </span>
+        <div class="container" style="padding: 20px">
+          <div style="float: left; width: 40%; min-width: 200px">
+            <span style="font-size: 1.3em; font-weight: bold">To get the average sound level of your local area, follow the below steps:</span>
+            <ol style="margin-top: 30px">
+             <li>Get an app that measures your decibal level (On iPhone, <a href="https://apps.apple.com/us/app/decibel-db-sound-level-meter/id1227650795" target="_blank">this app</a> is recommended)</li>
+             <li>If your app has many options, choose the "dBA" option</li>
+             <li>Wait for a time when <i>you</i> think that the surrounding is at it's quietest. Get out the app and measure the surrounding noise.</li>
+             <li>Wait for a time when <i>you</i> think that the surrounding is at it's loudest. Get out the app and measure the surrounding noise.</li>
+             <li>Average the two values and that's your average sound level!</li>
+            </ol>
+          </div>
+          <div style="float: left; margin-left: 40px">
+            <span style="font-weight: bold; font-sizeL 1.3em">Submit your average decibal level here:</span>
+            <br>
+            <input type="number" id="dbLevel" max="120" min="0" style="width: 100%; border: none; background: none; border-bottom: 1px white solid; color: white; font-size: 1.5em; margin-top: 20px;">
+            <button onclick="startPostData()" style="margin-top: 30px; background-color:#243A5E; border: none; cursor: pointer; color: white; width: 50%; height: 40px">Submit!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+async function startPostData(){
+  let loudness = document.getElementById("dbLevel").value;
+  let results = await postData(loudness);
+  if (results === "ok") alert("awesome! Thanks for contributing to the community!");
+  else return alert(results)
+}
+</script>
+
+<style>
+  body {
+    background-color: #3b3b3b;
+    color: white;
+  }
+  .container {
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70vh;
+    width: 50vw;
+    min-width: 300px;
+  }
+  ol li {
+    line-height: 2em
+  }
+  ol li a {
+    color: white;
+    border-bottom: 1px solid blue;
+  }
+  @media (max-width: 1260px){
+   .container {
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1000px;
+    width: 50vw;
+    min-width: 300px;
+  } 
+  }
+</style>
