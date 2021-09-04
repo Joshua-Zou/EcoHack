@@ -4,14 +4,27 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Welcome to EJS</title>
-  <meta name="author" content="Decibalthing">
+  <title>Sound Scale</title>
+  <meta name="author" content="Sound Scale">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
   <link rel="stylesheet" href="/css/stylesheet.css">
 
 </head>
 
 <body>
-  <script src="/js/homepage.js"></script>
+
+  <%- include('partials/header.ejs') %>
+
+    <div id="map"></div>
+      <script src="/js/homepage.js"></script>
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBPjnFRhe_EUGI69aKW9mNSSshtK2G7U&callback=initMap&libraries=visualization&v=weekly&channel=2"></script>
+
+    <img src="/images/mike.png">
+<script src="/js/postData.js"></script>
+
+
 </body>
 </html>
