@@ -12,3 +12,6 @@ html {
 #map {
   height: 90vh;
 }
+.footer a{
+  text-decoration: none;
+}

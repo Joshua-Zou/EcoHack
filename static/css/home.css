@@ -90,13 +90,13 @@ body {
   padding: 1em 0;
 }
 
+@media (max-width: 750px){
+  h1 {
+    font-size: 35px !important;
+  }
+}
 
 /*************/
 /*Main page ends*/
 /*************/
 
-@media (max-width: 750px){
-  body {
-    font-size: 0.8em;
-  }
-}
