@@ -13,9 +13,10 @@ async function postData(decibals) {
   else if (decibals < 77) level = 8;
   else if (decibals < 80) level = 9;
   else if (decibals < 120) level = 10;
+  else return "That wasn't a valid number!"
+
 
   if (decibals < 0) return "That wasn't a valid number!"
-  else return "That wasn't a valid number!"
 
   let results = await fetch("/api/newData", {
     method: "POST",

@@ -100,3 +100,11 @@ body {
 /*Main page ends*/
 /*************/
 
+/*************/
+/*about page begins*/
+/*************/
+
+#about{
+  background-color: #111c31;
+  padding: 100px 100px 100px 100px;
+}
