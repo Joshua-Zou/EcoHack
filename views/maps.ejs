@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Maps | Sound Scale</title>
+  <meta name="author" content="Sound Scale">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+  <link rel="stylesheet" href="/css/stylesheet.css">
+
+</head>
+
+<body>
+
+  <%- include('partials/header.ejs') %>
+
+<div class="body">
+
+    <div id="map">
+      <img src="/images/loading.gif">
+    </div>
+      <script src="/js/homepage.js"></script>
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBPjnFRhe_EUGI69aKW9mNSSshtK2G7U&callback=initMap&libraries=visualization&v=weekly&channel=2"></script>
+
+
+<script>
+  window.currentYearlookup = `<%-year%>`
+</script>
+<script src="/js/postData.js"></script>
+</div>
+
+
+</body>
+</html>

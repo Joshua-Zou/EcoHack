@@ -27,6 +27,19 @@ mongoclient.connect(async function(err, mongoclient) {
   router.get("/contribute", (req, res) => {
     return res.render("contribute.ejs")
   })
+  router.get("/maps", (req, res) => {
+    var years = {
+      "2021": true
+    }
+    if (!req.query.year){
+      return res.render("maps.ejs", {year: new Date().getFullYear()})
+    }
+    if (!years[req.query.year.toString()]){
+      return res.send("Sorry! We don't have the data for that year!")
+    }
+
+    return res.render("maps.ejs", {year: Number(req.query.year)})
+  })
   router.get("/api/chartData", async (req, res) => {
     if (!req.query.year) {
       return res.status(400).send("You must include a year in the query!");

@@ -48,7 +48,7 @@ function changeOpacity() {
 }
 
 async function getPoints() {
-  let newData = await fetch("/api/chartData?year="+date.getFullYear().toString());
+  let newData = await fetch("/api/chartData?year="+window.currentYearlookup.toString());
   newData = await newData.json();
   var dataTable = [];
   for (var i = 0; i<newData.data.length; i++){
