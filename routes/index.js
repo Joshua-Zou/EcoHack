@@ -27,6 +27,9 @@ mongoclient.connect(async function(err, mongoclient) {
   router.get("/contribute", (req, res) => {
     return res.render("contribute.ejs")
   })
+  router.get("/privacy-policy", (req, res) => {
+    return res.render("privacypolicy.ejs")
+  })
   router.get("/maps", (req, res) => {
     var years = {
       "2021": true
