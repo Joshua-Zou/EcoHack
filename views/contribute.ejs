@@ -1,24 +1,37 @@
-<!DOCTYPE html>
-<html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Contribute | SoundScale</title>
 	<link href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
   <link rel="icon" href="images/favicon.png">
-<script src="/js/postData.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+  <script src="/js/postData.js"></script>
 
 </head>
 
 <body>
 	<%-include('./partials/header.ejs')%>
-      <div class="body">
-        <span style="font-size: 1.8em; display: block; text-align: center; padding-top: 20px; font-weight: bold">
-          Contribute to the Community!
-        </span>
-        <div class="container" style="padding: 20px">
-          <div style="float: left; width: 40%; min-width: 200px">
+  <div class="body">
+    <div class="container">
+      <form >
+        <p>Submit Your local Db level!</p>
+        <input type="number" placeholder="dBa level" min="0" max="120" id="dbLevel"><br>
+        <input type="button" value="Submit!" onclick="startPostData()"><br>
+        <a href="#" id="showModalBtn" onclick="showModal()">Don't know what your local loudness level is?</a>
+      </form>
+
+      <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+      </div>
+    </div>
+    <%-include('./partials/footer.ejs')%>
+  </div>
+  <div class="modal displayNone">
+    <div>
             <span style="font-size: 1.3em; font-weight: bold">To get the average sound level of your local area, follow the below steps:</span>
             <ol style="margin-top: 30px">
              <li>Get an app that measures your decibal level (On iPhone, <a href="https://apps.apple.com/us/app/decibel-db-sound-level-meter/id1227650795" target="_blank">this app</a> is recommended)</li>
@@ -28,20 +41,20 @@
              <li>Average the two values and that's your average sound level!</li>
             </ol>
           </div>
-          <div style="float: left; margin-left: 40px">
-            <span style="font-weight: bold; font-sizeL 1.3em">Submit your average decibal level here:</span>
-            <br>
-            <input type="number" id="dbLevel" max="120" min="0" style="width: 100%; border: none; background: none; border-bottom: 1px white solid; color: white; font-size: 1.5em; margin-top: 20px;">
-            <button onclick="startPostData()" style="margin-top: 30px; background-color:#243A5E; border: none; cursor: pointer; color: white; width: 50%; height: 40px">Submit!</button>
-          </div>
-        </div>
-      </div>
-      <%-include('./partials/footer.ejs')%>
-    </div>
-  </body>
-</html>
+  </div>
+</body>
 
 <script>
+function showModal(){
+  console.log("a;slkdfj;alsdkfj")
+  document.querySelector(".modal").style.display = "block"
+}
+document.addEventListener("click", function(e){
+    if (document.querySelector("#showModalBtn").contains(e.target)){
+        return;
+    }
+        document.querySelector(".modal").style.display = "none";
+})
 async function startPostData(){
   let loudness = document.getElementById("dbLevel").value;
   let results = await postData(loudness);
@@ -50,38 +63,203 @@ async function startPostData(){
 }
 </script>
 
+
 <style>
-  body {
-    background-color: #3b3b3b;
-    color: white;
-  }
-  .container {
-    margin-top: 30px;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 70vh;
-    width: 50vw;
-    min-width: 300px;
-  }
-  ol li {
-    line-height: 2em
-  }
-  ol li a {
-    color: white;
-    border-bottom: 1px solid blue;
-  }
-  @media (max-width: 1260px){
-   .container {
-    margin-top: 30px;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 1000px;
-    width: 50vw;
-    min-width: 300px;
-  } 
-  }
+.displayNone {
+  display: none;
+}
+.modal a {
+  color: skyblue;
+}
+.modal {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  display: block:
+  width: fit-content;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+   top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal ol li {
+  width: fit-content;
+  margin-right: 0;
+}
+.footerContainer {
+  position: absolute;
+  bottom: -400px;
+}
+.footer {
+  padding-top: 30px;
+  background: none;
+}
+nav li {
+    margin-top: 10px;
+}
+
+body {
+  background: linear-gradient(45deg, #4f6d9e, #111c31);
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 3em;
+  height: 320px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+form p {
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+form a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 12px;
+}
+form a:hover {
+  text-shadow: 2px 2px 6px #00000040;
+}
+form a:active {
+  text-shadow: none;
+}
+form input {
+  background: transparent;
+  width: 200px;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+form input:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+form input[type=email]:focus, form input[type=password]:focus {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+form input[type=button] {
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1rem;
+}
+form input[type=button]:hover {
+  cursor: pointer;
+}
+form input[type=button]:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+form:hover {
+  margin: 4px;
+}
+
+::-moz-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+:-ms-input-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.drop {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  transition: all 0.2s ease;
+}
+.drop-1 {
+  height: 80px;
+  width: 80px;
+  top: -20px;
+  left: -40px;
+  z-index: -1;
+}
+.drop-2 {
+  height: 80px;
+  width: 80px;
+  bottom: -30px;
+  right: -10px;
+}
+.drop-3 {
+  height: 100px;
+  width: 100px;
+  bottom: 120px;
+  right: -50px;
+  z-index: -1;
+}
+.drop-4 {
+  height: 120px;
+  width: 120px;
+  top: -60px;
+  right: -60px;
+}
+.drop-5 {
+  height: 60px;
+  width: 60px;
+  bottom: 170px;
+  left: 90px;
+  z-index: -1;
+}
+
+a,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
 </style>

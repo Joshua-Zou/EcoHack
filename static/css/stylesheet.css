@@ -7,7 +7,8 @@ html {
 }
 
 .body {
-  margin-top: 80px
+  margin-top: 80px;
+  scroll-behavior: smooth;
 }
 #map {
   height: 90vh;
@@ -15,3 +16,4 @@ html {
 .footer a{
   text-decoration: none;
 }
+
