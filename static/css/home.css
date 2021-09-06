@@ -350,3 +350,142 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp for the slideshow*/
     font-size: 20px;
   }
 }
+
+
+/*************/
+/*about page ends*/
+/*************/
+
+
+/*************/
+/*contact page begins*/
+/*************/
+
+#contact{
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: url("hi.jpg") no-repeat;
+  background-position: center 0px;
+}
+#contact h1{
+  padding-bottom: 60px;
+}
+#submit{
+  width: 70px !important;
+  height: auto;
+  padding: 0px 0px 0px 0px!important;
+  }
+#contact textarea{
+  padding-left: 60px;
+  padding-right: 60px;
+  opacity: 75%;
+}
+
+#contact input{
+  position: relative;
+}
+
+.name{
+  right: 3px;
+}
+.where{
+  right: 3px;
+  top: 10px;
+}
+.email{
+  left: 3px;
+}
+.when{
+  left: 3px;
+  top: 10px;
+}
+
+@media only screen and (max-width: 570px) {
+ #askme{
+   width:222px;
+ }
+ .middle::after{
+    content: "\a";
+    white-space: pre;
+}
+}
+
+#contact textarea{
+  resize: none;
+  padding: 7px 7px 7px 7px;
+}
+#contact input{
+  padding: 6px 6px 6px 6px;
+  position: relative;
+  bottom: 11.7px;
+  width: 225px;
+}
+h1{
+  font-size: 50px;
+}
+#contact{
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: url("images/contact.jpg") no-repeat;
+  background-color: #111c31;
+  /*background-position: center -1000px;*/
+    -webkit-background-size: cover;
+
+}
+#contact img{
+  opacity: 100% !important;
+}
+#contact h1{
+  padding-bottom: 60px;
+}
+#contact form{
+  padding-left: 60px;
+  padding-right: 60px;
+  opacity: 100%;
+}
+
+#contact input{
+  position: relative;
+}
+
+.name{
+  right: 3px;
+}
+.where{
+  right: 3px;
+  top: 10px;
+}
+.email{
+  left: 3px;
+}
+.when{
+  left: 3px;
+  top: 10px;
+}
+
+@media only screen and (max-width: 570px) {
+ #askme{
+   width:222px;
+ }
+}
+
+#contact textarea{
+  resize: none;
+  padding: 7px 7px 7px 7px;
+}
+#contact input{
+  padding: 6px 6px 6px 6px;
+  position: relative;
+  bottom: 11.7px;
+  width: 5% !important;
+}
+
+#contact{
+  padding-top: 100px;
+}
+
+/*******************/
+/*contact ends*/
+/*******************/

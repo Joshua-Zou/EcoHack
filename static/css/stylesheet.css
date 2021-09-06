@@ -14,6 +14,6 @@ html {
   height: 90vh;
 }
 .footer a{
-  text-decoration: none;
+  text-decoration: underline;
 }
 
