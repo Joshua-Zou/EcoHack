@@ -1,12 +1,13 @@
   const date = new Date;
 
   let map, heatmap;
+  var theme = "light";
 
-async function initMap() {
+async function initMap(mapId) {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 13,
     center: await getIp(),
-    mapId: "c26b52ebbe6fd50c"
+    mapId: mapId
     //mapTypeId: "satellite",
   });
   heatmap = new google.maps.visualization.HeatmapLayer({
@@ -75,4 +76,15 @@ async function getIp(){
       lng: long
     };
     return data;
+  }
+
+  function changeTheme(){  
+    if (theme === "light"){
+      initMap("c26b52ebbe6fd50c");
+      theme = "dark";
+    }
+    else {
+      initMap(undefined);
+      theme = "light"
+    } 
   }

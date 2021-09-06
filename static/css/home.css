@@ -133,7 +133,9 @@ https://www.medicalnewstoday.com/articles/noise-pollution-health-effects#mental-
   color: black !important;
 }
 
-
+#about p{
+  line-height: 25px;
+}
 
 
 #about{
