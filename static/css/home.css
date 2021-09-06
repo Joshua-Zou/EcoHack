@@ -75,7 +75,6 @@ body {
   right: 0;
   top: 0;
   display: block;
-  background-image: url(/images/nightearth.jpg);
   background-size: cover;
   /*x y z */
   transform-origin: center center 0;
@@ -83,7 +82,16 @@ body {
   z-index: -1;
   min-height: 100vh;
 }
-
+@media (max-width: 500px){
+  #intro::before {
+    background-image: url(/images/smallNightEarth.jpg);
+  }
+}
+@media (min-width: 500px){
+  #intro::before {
+      background-image: url(/images/nightearth.jpg);
+  }
+}
 #intro * {
   font-weight: normal;
   letter-spacing: 0.2em;
@@ -370,7 +378,6 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp for the slideshow*/
   text-align: center;
   padding-top: 60px;
   padding-bottom: 60px;
-  background: url("hi.jpg") no-repeat;
   background-position: center 0px;
 }
 #contact h1{
@@ -433,7 +440,6 @@ h1{
   text-align: center;
   padding-top: 60px;
   padding-bottom: 60px;
-  background: url("images/contact.jpg") no-repeat;
   background-color: #111c31;
   /*background-position: center -1000px;*/
     -webkit-background-size: cover;

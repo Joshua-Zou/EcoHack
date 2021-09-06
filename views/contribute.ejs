@@ -1,4 +1,4 @@
-
+<html lang="en">>
 <head>
 	<link href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
   <link rel="icon" href="images/favicon.png">
@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
   <script src="/js/postData.js"></script>
+<meta name="description" content="Decentralized noise pollution data for everyone">
 
 </head>
 
@@ -43,7 +44,7 @@
           </div>
   </div>
 </body>
-
+</html>
 <script>
 function showModal(){
   console.log("a;slkdfj;alsdkfj")
@@ -91,9 +92,32 @@ async function startPostData(){
   width: fit-content;
   margin-right: 0;
 }
+
+.modal {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  display: block:
+  width: fit-content;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+   top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal ol li {
+  width: fit-content;
+  margin-right: 0;
+}
 .footerContainer {
   position: absolute;
-  bottom: -400px;
+  bottom: -500px;
+}
+@media (max-width: 400px){
+  .footerContainer {
+    bottom: -1000px !important;
+  }
 }
 .footer {
   padding-top: 30px;
