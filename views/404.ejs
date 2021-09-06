@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>SoundScale</title>
+	<link href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/css/home.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="images/favicon.png">
+
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+
+      <div class="body">
+          <span style="color: black; font-size:3em; display: block; text-align: center; font-weight: bold; margin-top: 20px"><%-error%></span>
+          <div style="margin-top: 30px; padding-bottom: 20px;">
+            <div style="float: left; margin-left: 100px; width: 40%">
+              <span style="display: block; text-align: center; font-size: 2em;">⬐ This is everyone else ⬎</span>
+              <img src="/images/404imgmap.png">
+            </div>
+            <div style="float: left; margin-left: 100px; width: 40%">
+              <img src="/images/404offMapindic.png">
+              <br>
+              <span>
+                In case you haven't noticed, you're lost.<br> If you'd like to get back into familiar territory, try <a href="/#home">this<a>.
+              </span>
+            </div>
+          </div>
+      </div>
+      <%-include('./partials/footer.ejs')%>
+  </body>
+</html>
+
+<style>
+
+.body {
+  color: black;
+}
+
+</style>

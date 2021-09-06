@@ -16,3 +16,8 @@ app.use(bodyParser.json())
 require('./router')(app);
 
 app.listen(port, () => console.info(`Listening on port ${port}`));
+
+app.use(function(req, res, next) {
+    res.status(404);
+    return res.render("404.ejs", {error: "404 - Page not Found"})
+});

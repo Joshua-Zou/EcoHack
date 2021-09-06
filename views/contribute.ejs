@@ -14,10 +14,10 @@
   <div class="body">
     <div class="container">
       <form >
-        <p>Submit Your local Db level!</p>
-        <input type="number" placeholder="dBa level" min="0" max="120" id="dbLevel"><br>
+        <p>Submit your local decibel/noise level!</p>
+        <input type="number" placeholder="Decibel level" min="0" max="120" id="dbLevel"><br>
         <input type="button" value="Submit!" onclick="startPostData()"><br>
-        <a href="#" id="showModalBtn" onclick="showModal()">Don't know what your local loudness level is?</a>
+        <a href="#" id="showModalBtn" onclick="showModal()">Don't know what your local noise levels are?</a>
       </form>
 
       <div class="drops">
@@ -36,8 +36,8 @@
             <ol style="margin-top: 30px">
              <li>Get an app that measures your decibal level (On iPhone, <a href="https://apps.apple.com/us/app/decibel-db-sound-level-meter/id1227650795" target="_blank">this app</a> is recommended)</li>
              <li>If your app has many options, choose the "dBA" option</li>
-             <li>Wait for a time when <i>you</i> think that the surrounding is at it's quietest. Get out the app and measure the surrounding noise.</li>
-             <li>Wait for a time when <i>you</i> think that the surrounding is at it's loudest. Get out the app and measure the surrounding noise.</li>
+             <li>Wait for a time when <i>you</i> think that your surroundings are at their quietest. Get out the app and measure the surrounding noise.</li>
+             <li>Wait for a time when <i>you</i> think that your sorroundings are at their loudest. Get out the app and measure the surrounding noise.</li>
              <li>Average the two values and that's your average sound level!</li>
             </ol>
           </div>
@@ -58,7 +58,7 @@ document.addEventListener("click", function(e){
 async function startPostData(){
   let loudness = document.getElementById("dbLevel").value;
   let results = await postData(loudness);
-  if (results === "ok") alert("awesome! Thanks for contributing to the community!");
+  if (results === "ok") alert("Your data has been added to the database! Thanks for contributing to the community!");
   else return alert(results)
 }
 </script>

@@ -35,7 +35,7 @@ mongoclient.connect(async function(err, mongoclient) {
       return res.render("maps.ejs", {year: new Date().getFullYear()})
     }
     if (!years[req.query.year.toString()]){
-      return res.send("Sorry! We don't have the data for that year!")
+      return res.render("404.ejs", {error: "Sorry! We don't have any data for that year!"})
     }
 
     return res.render("maps.ejs", {year: Number(req.query.year)})
@@ -80,4 +80,6 @@ mongoclient.connect(async function(err, mongoclient) {
     return res.send("ok")
   })
 });
+
+
 module.exports = router;
