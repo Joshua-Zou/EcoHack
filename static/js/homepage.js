@@ -6,6 +6,7 @@ async function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 13,
     center: await getIp(),
+    mapId: "c26b52ebbe6fd50c"
     //mapTypeId: "satellite",
   });
   heatmap = new google.maps.visualization.HeatmapLayer({
